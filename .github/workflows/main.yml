@@ -29,12 +29,4 @@ jobs:
 
       # Step 5: Deploy to your hosting service
       - name: Deploy to Hosting Service
-        run: |npm run deploy
-          # Add your deployment script here
-          # For example, if using a specific deployment action:
-          # uses: some/deployment-action@v1
-          # with:
-          #   api-key: ${{ secrets.API_KEY }}
-          #   other-parameter: 'value'
-          
-          echo "Deployment script goes here"
+        run: npm run deploy  # Ensure this command is correct for your deployment process
