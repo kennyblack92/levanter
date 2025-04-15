@@ -1,0 +1,40 @@
+name: Deploy Levanter
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Specify the Node.js version you need
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the application (if applicable)
+      - name: Build application
+        run: npm run build  # Adjust this command based on your build process
+
+      # Step 5: Deploy to your hosting service
+      - name: Deploy to Hosting Service
+        run: |npm run deploy
+          # Add your deployment script here
+          # For example, if using a specific deployment action:
+          # uses: some/deployment-action@v1
+          # with:
+          #   api-key: ${{ secrets.API_KEY }}
+          #   other-parameter: 'value'
+          
+          echo "Deployment script goes here"
